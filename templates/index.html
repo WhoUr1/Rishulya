@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>С Днём Рождения, {{ her_name }} ❤️</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+</head>
+
+<body
+    data-mode="{{ mode }}"
+    data-start-date="{{ start_date }}"
+>
+
+    <!-- Падающие сердечки -->
+    <div class="hearts-container"></div>
+
+
+    <!-- Основная карточка -->
+    <div class="card">
+
+        <h1>С Днём Рождения, {{ her_name }}! 🎂</h1>
+
+        <p class="subtitle">
+            Этот день создан для тебя ✨
+        </p>
+
+
+        <!-- Поздравление -->
+        <div class="message">
+
+            <p>
+                Любимая, ты — самое дорогое, что случилось в моей жизни.
+            </p>
+
+            <p>
+                Каждый день рядом с тобой — это подарок, который я берегу.
+            </p>
+
+            <p>
+                Твоя улыбка делает мир теплее, а сердце — спокойнее.
+            </p>
+
+            <p>
+                Спасибо, что ты есть. Спасибо, что ты — моя. 💖
+            </p>
+
+        </div>
+
+
+        <!-- Таймер -->
+        <div class="timer">
+
+            {% if mode == "together" %}
+                <h2>Мы вместе уже:</h2>
+            {% else %}
+                <h2>До нашей встречи осталось:</h2>
+            {% endif %}
+
+
+            <div class="timer-box">
+
+                <div>
+                    <span id="days">0</span>
+                    <p>дней</p>
+                </div>
+
+                <div>
+                    <span id="hours">00</span>
+                    <p>часов</p>
+                </div>
+
+                <div>
+                    <span id="minutes">00</span>
+                    <p>минут</p>
+                </div>
+
+                <div>
+                    <span id="seconds">00</span>
+                    <p>секунд</p>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Кнопка сюрприза -->
+        <button onclick="showSurprise()">
+            Нажми на меня 💌
+        </button>
+
+
+        <!-- Сюрприз -->
+        <div id="surprise" class="hidden">
+
+            <p>
+                Я люблю тебя мой котеночек! ❤️
+            </p>
+
+            <p class="signature">
+                — {{ your_name }}
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- JavaScript -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
+
